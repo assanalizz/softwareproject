@@ -1,27 +1,20 @@
+
+// controller/MainController.java
 package controller;
 
-import model.Config;
-import model.DataModel;
-import model.Message;
-import model.MessageFactory;
-import view.ConsoleView;
+import model.ExternalServiceAdapter;
 
 public class MainController {
-    private DataModel model;
-    private ConsoleView view;
-    private Config config;
-    private MessageFactory messageFactory;
+    private ExternalServiceAdapter externalServiceAdapter;
 
-    public MainController(DataModel model, ConsoleView view) {
-        this.model = model;
-        this.view = view;
-        this.config = Config.getInstance();
-        this.messageFactory = new MessageFactory();
+    public MainController() {
+        // Создаем экземпляр адаптера
+        this.externalServiceAdapter = new ExternalServiceAdapter();
     }
 
-    public void updateData(String newData) {
-        model.setData(newData);
-        Message welcomeMessage = messageFactory.createMessage("welcome");
-        view.displayData(config.getAppName() + ": " + welcomeMessage.getContent() + " - " + model.getData());
+    public void updateData() {
+        // Используем адаптер для получения данных
+        String data = externalServiceAdapter.fetchData();
+        System.out.println("Updated Data: " + data);
     }
 }
