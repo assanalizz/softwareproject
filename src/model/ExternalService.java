@@ -1,7 +1,9 @@
+// model/ExternalService.java
 package model;
 
 public class ExternalService {
-    public String fetchExternalMessage() {
-        return "Hello from external service!";
+    // Метод для получения данных
+    public String getData() {
+        return "Data from external service"; // Пример данных
     }
 }

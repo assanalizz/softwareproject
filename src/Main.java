@@ -1,9 +1,9 @@
 // Main.java
-import controller.MainController;
+import model.SystemFacade;
 
 public class Main {
     public static void main(String[] args) {
-        MainController controller = new MainController();
-        controller.updateData();
+        SystemFacade facade = new SystemFacade();
+        facade.updateData();
     }
 }

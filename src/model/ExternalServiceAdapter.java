@@ -1,8 +1,13 @@
-// model/ExternalServiceAdapter.java
 package model;
 
 public class ExternalServiceAdapter {
+    private ExternalService externalService;
+
+    public ExternalServiceAdapter(ExternalService externalService) {
+        this.externalService = externalService;
+    }
+
     public String fetchData() {
-        return "External data received!";
+        return externalService.getData(); // Используем метод из ExternalService
     }
 }
